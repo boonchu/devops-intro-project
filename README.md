@@ -1,6 +1,8 @@
 Instructions for Intro to DevOps Project
 ========================================
 
+  * https://www.udacity.com/course/progress#!/c-ud611
+
 ## Part 0 - Local Installation
 
 1. Install VirtualBox
