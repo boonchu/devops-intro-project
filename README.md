@@ -56,54 +56,19 @@ cd ../output/virtualbox
 
 ##### add Vagrantfile to the above directory, then
 
+```
 vagrant box add control-ubuntu-14.04.3-server-amd64.box --name devops-ctrlserver
 vagrant up
-
-The Vagrantfile I used is given below:
-
-```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-# All Vagrant configuration is done below. 
-
-Vagrant.configure(2) do |config|
-
-  config.vm.box = "devops-ctrlserver"
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8088" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 8080
-
-end
 ```
 
 ###### Once the server is up, Graphite and Jenkins can be respectively accessed with your browser at:
-http://localhost:80801
-http://localhost:8080/jenkins5
 
-I did encounter an error using "vagrant up":
-
-```
-==> default: Mounting shared folders...
-    default: /vagrant => /home/roop/devops/output/virtualbox
-Failed to mount folders in Linux guest. This is usually because
-the "vboxsf" file system is not available. Please verify that
-the guest additions are properly installed in the guest and
-can work properly. The command attempted was:
-
-mount -t vboxsf -o uid=`id -u vagrant`,gid=`getent group vagrant | cut -d: -f3` vagrant /vagrant
-mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g vagrant` vagrant /vagrant
-
-The error output from the last command was:
-
-stdin: is not a tty
-mount: unknown filesystem type 'vboxsf'
-
+``
+http://localhost:8081
+http://localhost:8081/jenkins
 ```
 
-###### Fixed with Sync Folder
+###### Vagrantfile sample
 
 ```
 # -*- mode: ruby -*-
@@ -118,7 +83,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8081
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
