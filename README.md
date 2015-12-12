@@ -38,20 +38,17 @@ See full directions at: https://www.udacity.com/wiki/ud611
     To install app specific node packages: 
     `sudo npm install`
     Now you can run tests - `grunt -v`
-                                     
+
 
 ### Run Jenkins Locally
 
-https://discussions.udacity.com/t/lesson-3-running-jenkins-and-graphite-locally-no-credit-card-disclosure-necessary/31907
+  * https://discussions.udacity.com/t/lesson-3-running-jenkins-and-graphite-locally-no-credit-card-disclosure-necessary/31907
 
 ```
-
 cd ~/parent_directory_where_devops_was_cloned
-
 cd devops/packer-templates
 packer build -only=virtualbox-iso control-server.json
 cd ../output/virtualbox
-
 ```
 
 ##### add Vagrantfile to the above directory, then
@@ -63,7 +60,7 @@ vagrant up
 
 ###### Once the server is up, Graphite and Jenkins can be respectively accessed with your browser at:
 
-``
+```
 http://localhost:8081
 http://localhost:8081/jenkins
 ```
